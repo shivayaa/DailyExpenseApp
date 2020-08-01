@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Lato", sans-serif;
+background-color: seashell;}
+
+.sidebar {
+  height: 100%;
+  width: 200px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 100;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+}
+
+.sidebar a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 400px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+
+  <div class="sidebar">
+   
+<h2><a href="/">Home</a></h2>
+
+{% if user.is_authenticated %}
+
+
+<h2><a href="addIncome">Add Income</a></h2>
+<h2><a href="addExpense">Add Expense</a></h2>
+<h2><a href="incomeList">Income List</a></h2>
+<h2><a href="expenseList">Expense List</a></h2>
+<h2><a href="editProfile">Edit Profile</a></h2>
+
+<h2><a href="userLogout">Logout</a></h2>
+
+{% else %}
+<h2><a href="addUser">Register</a></h2>
+<h2><a href="userLogin">Login</a></h2>
+
+{% endif %}
+  </div>
+
+  <div class="main">
+
+
+    {% block Main %} {% endblock %}
+  </div>
+     
+</body>
+</html> 
+

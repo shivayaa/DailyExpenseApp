@@ -1,0 +1,12 @@
+{% extends 'sideBar.html' %}
+
+{% block Main %}
+<h1>Daily Expenses Web Application</h1> {% if user.is_authenticated %}
+
+<h2>Welcome <span style="color: red;">{{uname}}</span></h2>
+
+<h2>Your Total Balance is:<span style="color: red;">{{bal}}</span></h2>
+
+
+ {% endif %}{% endblock %}
+
